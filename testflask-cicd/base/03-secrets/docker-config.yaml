@@ -1,0 +1,16 @@
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  creationTimestamp: null
+  name: regcred
+  namespace: testflask-cicd
+spec:
+  encryptedData:
+    .dockerconfigjson: >-
+      AgCCAismEEloog/GM9QnMzk5CsahLMqZxihfnUegd9nt11GvqoDwIzUJCnFdeUUgW0y5cFy4wk9cEOp6qqGaMcf7Iv695tFgPe7XMlaL8rrbTq+Zln7ytR/8/GylVDnfhWbNvq8q75ZlbS9XulRRT5qd3XPcLTX06nmXEziZstw/9eJ3sTqVEPoB81jZdalx+dUOnuemuGMsT+Uig0McqnWjALobv1zQGYvAcQCHtr++iT2Q8BVsfxgt79IOgZt9euoV/4LdYZ6FBBNAzNgzT4bH3wY3/EuFhBll4DKY2ga0zmSAxbG23vkCi53uNuuuNKRnCuyNOth0CF3lzeh1iNhCXMSH91R5TfevKDnYChmpnEaAKD37jP+nEo3zGtHVg9BPXdRQGwpfQroLKE+jn+BpxbrjluZUc+HvLjTCEKMdrUWnjIETVjZjHgQnSV9eZE/mFq+uGFvkJN8CmyRMr9F/bzyQgOLZjmiXPLd5+/td82HXZqjZXKClC7D6GBVJoHpKhgiG4ThQXl8T4ZV+HU75a2vpjn2d1CS4BTPpWqJSyQTLaReXc6CG4RIdSc5dW9skPqw2ScAjb5b6rTRB7F2ODoOZUu2Gs5NjuXX+SpPTgmG+xkqHUWyaLTFx5ttw2DV6PLuuA3jz6cFL+l7ADEwgshJ7wg3O4earYt22MvY55wWuHpgTr4hchoJ6dj6Rs3rzECCW+VJlwD6uVxCCWyONlMQFU/gOfqg71mqA1f4lyxlwpvqM/sUaef+2WRAGilJKhwRZ7w==
+  template:
+    metadata:
+      creationTimestamp: null
+      name: regcred
+      namespace: testflask-cicd
+    type: kubernetes.io/dockerconfigjson
