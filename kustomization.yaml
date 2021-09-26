@@ -1,2 +1,2 @@
 resources:
-  - testFlask-cicd-build.yaml
+  - ./deploy/testFlask-cicd-app.yaml
