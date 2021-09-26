@@ -1,0 +1,98 @@
+apiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata:
+  name: testflask-pipeline
+  namespace: testflask-cicd
+spec:
+  params:
+    - default: ""
+      name: APP_IMAGE_URL
+      type: string
+    - default: ""
+      name: APP_CONFIG
+      type: string
+    - default: ""
+      name: APP_NAME
+      type: string
+    - default: ""
+      name: APP_MODULE
+      type: string
+    - default: ""
+      name: MYSQL_DATABASE
+      type: string
+    - default: ""
+      name: SECRET_NAME
+      type: string
+    - default: ""
+      name: MYSQL_HOST
+      type: string
+    - default: ""
+      name: NAMESPACE_DEV
+      type: string
+    - default: ""
+      name: NAMESPACE_PROD
+      type: string
+  resources:
+    - name: test-git
+      type: git
+  tasks:
+    - name: git-clone-code
+      params:
+        - name: url
+          value: "https://github.com/MoOyeg/testFlask.git"
+        - name: revision
+          value: master
+        - name: submodules
+          value: "true"
+        - name: depth
+          value: "1"
+        - name: sslVerify
+          value: "true"
+        - name: subdirectory
+          value: src
+        - name: deleteExisting
+          value: "true"
+      taskRef:
+        kind: ClusterTask
+        name: git-clone
+      workspaces:
+        - name: output
+          workspace: testflask-cicd-pvc
+    - name: python-unittest
+      params:
+        - name: PYTHON
+          value: latest
+        - name: TEST_FILE
+          value: test.py
+        - name: REQUIREMENTS_FILE
+          value: requirements.txt
+        - name: SOURCE_PATH
+          value: src
+      runAfter:
+        - git-clone-code
+      taskRef:
+        kind: Task
+        name: python-unittest
+      workspaces:
+        - name: output
+          workspace: testflask-cicd-pvc
+    - name: s2i-build-code
+      params:
+        - name: VERSION
+          value: "3.8-ubi8"
+        - name: PATH_CONTEXT
+          value: src
+        - name: TLSVERIFY
+          value: "false"
+        - name: IMAGE
+          value: "quay.io/mooyeg/testflask"
+      runAfter:
+        - python-unittest
+      taskRef:
+        kind: ClusterTask
+        name: s2i-python
+      workspaces:
+        - name: source
+          workspace: testflask-cicd-pvc
+  workspaces:
+    - name: testflask-cicd-pvc
