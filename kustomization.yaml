@@ -1,4 +1,2 @@
 resources:
   - testFlask-cicd-build.yaml
-transformers:
-  - ./transformers/add-branch.yaml
