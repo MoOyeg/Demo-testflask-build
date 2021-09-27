@@ -41,7 +41,7 @@ spec:
         - name: url
           value: "https://github.com/MoOyeg/Demo-testflask-code.git"
         - name: revision
-          value: master
+          value: temp
         - name: submodules
           value: "true"
         - name: depth
