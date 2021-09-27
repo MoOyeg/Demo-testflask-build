@@ -13,6 +13,7 @@ resources:
   - 04-tasks/deploy-from-source-task.yaml
   - 04-tasks/task-python-unittest.yaml
   - 04-tasks/task-openshift-client-1-0.yaml
+  - 04-tasks/stackrox-image-scan.yaml
   - 04-workspace/pipeline-pvc.yaml
   - 05-pipelines/pipeline-testflask.yaml
   - 05-pipelines-resources/pipelineresource-git.yaml
