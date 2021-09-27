@@ -105,7 +105,7 @@ spec:
         - name: output_format
           value: "json"
         - name: insecure-skip-tls-verify
-          value: true
+          value: "true"
       runAfter:
         - s2i-build-code
       taskRef:
