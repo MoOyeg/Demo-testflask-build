@@ -109,8 +109,8 @@ spec:
       runAfter:
         - s2i-build-code
       taskRef:
-        kind: ClusterTask
-        name: s2i-python
+        kind: Task
+        name: stackrox-image-scan
       workspaces:
         - name: source
           workspace: testflask-cicd-pvc    
