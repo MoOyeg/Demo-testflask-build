@@ -121,8 +121,8 @@ spec:
       runAfter:
         - s2i-build-code
       taskRef:
-        kind: ClusterTask
-        name: openshift-client
+        kind: Task
+        name: openshift-client-1-0
     - name: tag-dev-prod
       params:
         - name: SCRIPT
@@ -140,8 +140,8 @@ spec:
       runAfter:
         - build-dev-env
       taskRef:
-        kind: ClusterTask
-        name: openshift-client
+        kind: Task
+        name: openshift-client-1-0
     - name: cleanup-dev-env
       params:
         - name: SCRIPT
@@ -161,7 +161,7 @@ spec:
       runAfter:
         - tag-dev-prod
       taskRef:
-        kind: ClusterTask
-        name: openshift-client
+        kind: Task
+        name: openshift-client-1-0
   workspaces:
     - name: testflask-cicd-pvc
