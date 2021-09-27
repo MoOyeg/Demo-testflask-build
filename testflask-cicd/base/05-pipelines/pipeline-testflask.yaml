@@ -110,10 +110,7 @@ spec:
         - s2i-build-code
       taskRef:
         kind: Task
-        name: stackrox-image-scan
-      workspaces:
-        - name: source
-          workspace: testflask-cicd-pvc    
+        name: stackrox-image-scan 
     - name: build-dev-env
       params:
         - name: SCRIPT
