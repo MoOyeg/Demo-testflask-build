@@ -101,7 +101,7 @@ spec:
         - name: rox_api_token
           value: "roxsecrets"
         - name: image
-          value: "image-registry.openshift-image-registry.svc:5000/appdev/testflask"
+          value: "quay.io/mooyeg/python3:latest"
         - name: output_format
           value: "json"
         - name: insecure-skip-tls-verify
@@ -110,7 +110,7 @@ spec:
         - s2i-build-code
       taskRef:
         kind: Task
-        name: stackrox-image-scan 
+        name: stackrox-image-scan
     - name: build-dev-env
       params:
         - name: SCRIPT
