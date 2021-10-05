@@ -1,12 +1,11 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  creationTimestamp: null
   name: testflask-cicd
-  namespace: openshift-gitops
+  namespace: testflask-cicd
 spec:
   destination:
-    namespace: openshift-gitops
+    namespace: testflask-cicd
     server: https://kubernetes.default.svc
   ignoreDifferences:
     - group: argoproj.io
@@ -41,12 +40,3 @@ spec:
     automated:
       prune: true
       selfHeal: true
-status:
-  health: {}
-  summary: {}
-  sync:
-    comparedTo:
-      destination: {}
-      source:
-        repoURL: ""
-    status: ""
