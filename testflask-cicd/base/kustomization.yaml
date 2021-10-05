@@ -22,4 +22,4 @@ resources:
   - 08-eventlisteners/cicd-event-listener.yaml
   - 09-routes/gitops-webhook-event-listener.yaml
   - 10-commit-status-tracker/operator.yaml
-  - 10-commit-status-tracker/pipelinerun.yaml
+#  - 10-commit-status-tracker/pipelinerun.yaml
