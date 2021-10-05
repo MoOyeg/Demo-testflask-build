@@ -3,7 +3,7 @@ kind: Application
 metadata:
   creationTimestamp: null
   name: testflask-cicd
-  namespace: openshift-gitops
+  namespace: testflask-cicd
 spec:
   destination:
     namespace: openshift-gitops
