@@ -2,6 +2,7 @@ apiVersion: tekton.dev/v1beta1
 kind: PipelineRun
 metadata:
   name: testflask-pipelinerun
+  namespace: testflask-cicd
   labels:
     tekton.dev/pipeline: testflask-pipeline
 spec:
